@@ -18,6 +18,7 @@
 		2FFB64282AC6D255007F2F80 /* UserListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFB64272AC6D255007F2F80 /* UserListApp.swift */; };
 		2FFB642A2AC6D255007F2F80 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFB64292AC6D255007F2F80 /* UserListView.swift */; };
 		2FFB642C2AC6D256007F2F80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FFB642B2AC6D256007F2F80 /* Assets.xcassets */; };
+		ACDBD01D2BB1E671008204A9 /* UserListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACDBD01C2BB1E671008204A9 /* UserListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +46,7 @@
 		2FFB64292AC6D255007F2F80 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		2FFB642B2AC6D256007F2F80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2FFB64342AC6D256007F2F80 /* UserListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UserListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		ACDBD01C2BB1E671008204A9 /* UserListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,11 +71,8 @@
 			isa = PBXGroup;
 			children = (
 				2FFB64272AC6D255007F2F80 /* UserListApp.swift */,
-				2FFB64292AC6D255007F2F80 /* UserListView.swift */,
-				2F804AE12ACC976300A46A03 /* UserDetailView.swift */,
-				2FEF0C702ACB45E3004DB87C /* User.swift */,
-				2FEF0C6E2ACB416C004DB87C /* UserListResponse.swift */,
-				2FF9D91E2ACB3DD400F3A6C5 /* UserListRepository.swift */,
+				ACDBD01A2BB1E63C008204A9 /* Model */,
+				ACDBD01B2BB1E64E008204A9 /* Views */,
 				2FF9D9192ACB3CD800F3A6C5 /* HTTPClient */,
 			);
 			path = Sources;
@@ -133,6 +132,26 @@
 			path = UserListTests;
 			sourceTree = "<group>";
 		};
+		ACDBD01A2BB1E63C008204A9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				2FEF0C702ACB45E3004DB87C /* User.swift */,
+				2FEF0C6E2ACB416C004DB87C /* UserListResponse.swift */,
+				2FF9D91E2ACB3DD400F3A6C5 /* UserListRepository.swift */,
+				ACDBD01C2BB1E671008204A9 /* UserListViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		ACDBD01B2BB1E64E008204A9 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2F804AE12ACC976300A46A03 /* UserDetailView.swift */,
+				2FFB64292AC6D255007F2F80 /* UserListView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -179,7 +198,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1420;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1530;
 				TargetAttributes = {
 					2FFB64232AC6D255007F2F80 = {
 						CreatedOnToolsVersion = 14.2;
@@ -237,6 +256,7 @@
 				2FF9D91B2ACB3CE600F3A6C5 /* URLRequest.swift in Sources */,
 				2FFB642A2AC6D255007F2F80 /* UserListView.swift in Sources */,
 				2FEF0C6F2ACB416C004DB87C /* UserListResponse.swift in Sources */,
+				ACDBD01D2BB1E671008204A9 /* UserListViewModel.swift in Sources */,
 				2F804AE22ACC976300A46A03 /* UserDetailView.swift in Sources */,
 				2FF9D91F2ACB3DD400F3A6C5 /* UserListRepository.swift in Sources */,
 				2FFB64282AC6D255007F2F80 /* UserListApp.swift in Sources */,
@@ -387,6 +407,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"UserList/Preview Content\"";
+				DEVELOPMENT_TEAM = 9L643QCQAN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -415,6 +436,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"UserList/Preview Content\"";
+				DEVELOPMENT_TEAM = 9L643QCQAN;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
