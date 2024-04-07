@@ -7,10 +7,11 @@
 
 import SwiftUI
 
-struct UserNavLink: View {
+struct UserNavLink<ContentView: View>: View {
     @ObservedObject var viewModel: UserListViewModel
     let user: User
-    let uiElements: () -> some View 
+    let uiElements: () -> ContentView
+    
     var body: some View {
         NavigationLink(destination: UserDetailView(user: user)) {
             uiElements()
@@ -22,7 +23,3 @@ struct UserNavLink: View {
         }
     }
 }
-
-//#Preview {
-//    UserNavLink()
-//}

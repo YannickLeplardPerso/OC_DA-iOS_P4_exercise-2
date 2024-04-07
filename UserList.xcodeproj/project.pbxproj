@@ -18,6 +18,8 @@
 		2FFB64282AC6D255007F2F80 /* UserListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFB64272AC6D255007F2F80 /* UserListApp.swift */; };
 		2FFB642A2AC6D255007F2F80 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFB64292AC6D255007F2F80 /* UserListView.swift */; };
 		2FFB642C2AC6D256007F2F80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FFB642B2AC6D256007F2F80 /* Assets.xcassets */; };
+		AC54BB772BBC2FCE00C938B1 /* UserNavLink.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC54BB762BBC2FCE00C938B1 /* UserNavLink.swift */; };
+		AC54BB792BBC8CE500C938B1 /* NavTitleAndToolbarStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC54BB782BBC8CE500C938B1 /* NavTitleAndToolbarStyle.swift */; };
 		ACC7A9432BB6C4B1003685EC /* UserListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC7A9422BB6C4B1003685EC /* UserListViewModelTests.swift */; };
 		ACC7A9492BB715F3003685EC /* ToolbarItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC7A9482BB715F3003685EC /* ToolbarItems.swift */; };
 		ACC7A94B2BB718D2003685EC /* UserImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC7A94A2BB718D2003685EC /* UserImage.swift */; };
@@ -49,6 +51,8 @@
 		2FFB64292AC6D255007F2F80 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		2FFB642B2AC6D256007F2F80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2FFB64342AC6D256007F2F80 /* UserListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UserListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC54BB762BBC2FCE00C938B1 /* UserNavLink.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserNavLink.swift; sourceTree = "<group>"; };
+		AC54BB782BBC8CE500C938B1 /* NavTitleAndToolbarStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavTitleAndToolbarStyle.swift; sourceTree = "<group>"; };
 		ACC7A9422BB6C4B1003685EC /* UserListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListViewModelTests.swift; sourceTree = "<group>"; };
 		ACC7A9482BB715F3003685EC /* ToolbarItems.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ToolbarItems.swift; sourceTree = "<group>"; };
 		ACC7A94A2BB718D2003685EC /* UserImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserImage.swift; sourceTree = "<group>"; };
@@ -142,8 +146,10 @@
 		ACC7A94C2BB719E7003685EC /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				AC54BB762BBC2FCE00C938B1 /* UserNavLink.swift */,
 				ACC7A9482BB715F3003685EC /* ToolbarItems.swift */,
 				ACC7A94A2BB718D2003685EC /* UserImage.swift */,
+				AC54BB782BBC8CE500C938B1 /* NavTitleAndToolbarStyle.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -275,6 +281,8 @@
 				2FFB642A2AC6D255007F2F80 /* UserListView.swift in Sources */,
 				2FEF0C6F2ACB416C004DB87C /* UserListResponse.swift in Sources */,
 				ACDBD01D2BB1E671008204A9 /* UserListViewModel.swift in Sources */,
+				AC54BB792BBC8CE500C938B1 /* NavTitleAndToolbarStyle.swift in Sources */,
+				AC54BB772BBC2FCE00C938B1 /* UserNavLink.swift in Sources */,
 				2F804AE22ACC976300A46A03 /* UserDetailView.swift in Sources */,
 				2FF9D91F2ACB3DD400F3A6C5 /* UserListRepository.swift in Sources */,
 				2FFB64282AC6D255007F2F80 /* UserListApp.swift in Sources */,

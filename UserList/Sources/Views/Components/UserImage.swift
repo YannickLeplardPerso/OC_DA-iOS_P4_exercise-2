@@ -25,7 +25,3 @@ struct UserImage: View {
         }
     }
 }
-
-//#Preview {
-//    UserImage()
-//}

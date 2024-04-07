@@ -1,5 +1,7 @@
 import SwiftUI
 
+
+
 struct UserListView: View {
     @ObservedObject var viewModel: UserListViewModel
     
@@ -7,7 +9,7 @@ struct UserListView: View {
         NavigationView {
             if !viewModel.isGridView {
                 List(viewModel.users) { user in
-                    NavigationLink(destination: UserDetailView(user: user)) {
+                    UserNavLink(viewModel: viewModel, user: user) {
                         HStack {
                             UserImage(user: user, frameSize: 50)
                             
@@ -19,21 +21,13 @@ struct UserListView: View {
                             }
                         }
                     }
-                    .onAppear {
-                        if viewModel.shouldLoadMoreData(currentItem: user) {
-                            viewModel.fetchUsers()
-                        }
-                    }
                 }
-                .navigationTitle("Users")
-                .toolbar {
-                    ItemsToolbar(viewModel: viewModel)
-                }
+                .navTitleToolbarStyle(viewModel)
             } else {
                 ScrollView {
                     LazyVGrid(columns: [GridItem(.adaptive(minimum: 150))]) {
                         ForEach(viewModel.users) { user in
-                            NavigationLink(destination: UserDetailView(user: user)) {
+                            UserNavLink(viewModel: viewModel, user: user) {
                                 VStack {
                                     UserImage(user: user, frameSize: 150)
                                     
@@ -42,18 +36,10 @@ struct UserListView: View {
                                         .multilineTextAlignment(.center)
                                 }
                             }
-                            .onAppear {
-                                if viewModel.shouldLoadMoreData(currentItem: user) {
-                                    viewModel.fetchUsers()
-                                }
-                            }
                         }
                     }
                 }
-                .navigationTitle("Users")
-                .toolbar {
-                    ItemsToolbar(viewModel: viewModel)
-                }
+                .navTitleToolbarStyle(viewModel)
             }
         }
         .onAppear {
@@ -62,8 +48,12 @@ struct UserListView: View {
     }
 }
 
-//struct UserListView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        UserListView()
-//    }
-//}
+
+
+struct UserListView_Previews: PreviewProvider {
+    static var previews: some View {
+        let  ulvm = UserListViewModel(repository: UserListRepository())
+
+        UserListView(viewModel: ulvm)
+    }
+}
