@@ -6,33 +6,67 @@
 //
 
 import XCTest
+//import Combine
 @testable import UserList
 
 final class UserListViewModelTests: XCTestCase {
     
-    var userListVM: UserListViewModel = UserListViewModel(repository: UserListRepository())
+    //var cancellables: Set<AnyCancellable> = []
+    
+    private var userListVM: UserListViewModel? // = UserListViewModel(repository: UserListRepository(executeDataRequest: UserListRepository.mockExecuteDataRequest))
         
-//    override func setUp() {
-//            super.setUp()
-//        }
-//
-//    override func tearDown() {
-//        super.tearDown()
-//    }
+    @MainActor
+    override func setUp() {
+        userListVM = UserListViewModel(repository: UserListRepository(executeDataRequest: UserListRepository.mockExecuteDataRequest))
+            super.setUp()
+        }
     
-    func testVar()
-    {
-        //XCTAssert(userListVM.users.count != 0)
+    override func tearDown() {
+        userListVM = nil
+        super.tearDown()
     }
     
-    func testFetchUsers()
-    {
+    @MainActor
+    func testFetchUsers() async throws {
+        let NB_ITERATIONS = 3
     
+        XCTAssert(userListVM!.users.isEmpty)
+
+        for _ in 1...NB_ITERATIONS {
+            try await userListVM!.fetchUsers()
+        }
+        
+        XCTAssertEqual(userListVM!.users.count, UserListRepository.USERS_QUANTITY_TEST * NB_ITERATIONS)
     }
     
-    func testReloadsUsers()
-    {
+    @MainActor
+    func testShouldLoadMoreData() async throws {
+        XCTAssert(userListVM!.users.isEmpty)
+        
+        try await userListVM!.fetchUsers()
+        
+        XCTAssertEqual(userListVM!.users.count, UserListRepository.USERS_QUANTITY_TEST)
+
+        var ret = userListVM!.shouldLoadMoreData(currentItem: userListVM!.users.first! )
+        XCTAssertEqual(ret, false)
+        
+        ret = userListVM!.shouldLoadMoreData(currentItem: userListVM!.users.last!)
+        XCTAssertEqual(ret, true)
+        
+    }
     
+    @MainActor
+    func testReloadsUsers() async throws {
+        XCTAssert(userListVM!.users.isEmpty)
+                
+        try await userListVM!.fetchUsers()
+        XCTAssertEqual(userListVM!.users.count, UserListRepository.USERS_QUANTITY_TEST)
+        userListVM!.users.removeFirst()
+        XCTAssertEqual(userListVM!.users.count, UserListRepository.USERS_QUANTITY_TEST - 1)
+        
+        try await userListVM!.reloadUsers()
+        
+        XCTAssertEqual(userListVM!.users.count, UserListRepository.USERS_QUANTITY_TEST)
     }
     
 }

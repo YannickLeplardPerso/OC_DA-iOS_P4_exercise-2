@@ -1,7 +1,5 @@
 import SwiftUI
 
-
-
 struct UserListView: View {
     @ObservedObject var viewModel: UserListViewModel
     
@@ -43,7 +41,9 @@ struct UserListView: View {
             }
         }
         .onAppear {
-            viewModel.fetchUsers()
+            Task {
+                try await viewModel.fetchUsers()
+            }
         }
     }
 }

@@ -24,7 +24,9 @@ struct ItemsToolbar: ToolbarContent {
         }
         ToolbarItem(placement: .navigationBarTrailing) {
             Button(action: {
-                viewModel.reloadUsers()
+                Task {
+                    try await viewModel.reloadUsers()
+                }
             }) {
                 Image(systemName: "arrow.clockwise")
                     .imageScale(.large)

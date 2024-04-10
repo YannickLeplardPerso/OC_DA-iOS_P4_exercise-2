@@ -5,7 +5,7 @@ final class UserListRepositoryTests: XCTestCase {
     // Happy path test case
     func testFetchUsersSuccess() async throws {
         // Given
-        let repository = UserListRepository(executeDataRequest: mockExecuteDataRequest)
+        let repository = UserListRepository(executeDataRequest: UserListRepository.mockExecuteDataRequest)
         let quantity = 2
         
         // When
@@ -52,9 +52,10 @@ final class UserListRepositoryTests: XCTestCase {
     }
 }
 
-private extension UserListRepositoryTests {
+extension UserListRepository {
+    static let USERS_QUANTITY_TEST: Int = 2
     // Define a mock for executeDataRequest that returns predefined data
-    func mockExecuteDataRequest(_ request: URLRequest) async throws -> (Data, URLResponse) {
+    static func mockExecuteDataRequest(_ request: URLRequest) async throws -> (Data, URLResponse) {
         // Create mock data with a sample JSON response
         let sampleJSON = """
             {

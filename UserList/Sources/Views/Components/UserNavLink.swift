@@ -18,7 +18,9 @@ struct UserNavLink<ContentView: View>: View {
         }
         .onAppear {
             if viewModel.shouldLoadMoreData(currentItem: user) {
-                viewModel.fetchUsers()
+                Task {
+                    try await viewModel.fetchUsers()
+                }
             }
         }
     }

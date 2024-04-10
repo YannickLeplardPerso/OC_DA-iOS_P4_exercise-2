@@ -9,8 +9,11 @@
 
 import SwiftUI
 
+@MainActor
 final class UserListViewModel: ObservableObject {
     // MARK: - Private properties
+    
+    static let USERS_QUANTITY_TO_FETCH: Int = 20
     
     private let repository: UserListRepository
     private var isLoading = false
@@ -32,24 +35,17 @@ final class UserListViewModel: ObservableObject {
     }
 
     // MARK: - Inputs
-        //.receive(on: RunLoop.main)
     
-    func fetchUsers() {
+    func fetchUsers() async throws {
         isLoading = true
-        Task { @MainActor in
-            do {
-                let users = try await repository.fetchUsers(quantity: 20)
-                self.users.append(contentsOf: users)
-                isLoading = false
-            } catch {
-                print("Error fetching users: \(error.localizedDescription)")
-            }
-        }
+            let users = try await repository.fetchUsers(quantity: UserListViewModel.USERS_QUANTITY_TO_FETCH)
+            self.users.append(contentsOf: users)
+            isLoading = false
     }
      
-    func reloadUsers() {
+    func reloadUsers() async throws {
         users.removeAll()
-        fetchUsers()
+        try await fetchUsers()
     }
 
 
